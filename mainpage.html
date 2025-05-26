@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Main Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
     body {
       background-image: url('backround.webp');
       background-size: cover;
@@ -14,74 +19,236 @@
       min-height: 100vh;
       color: white;
       backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
+      padding: 20px 40px;
       background: rgba(0, 0, 0, 0.6);
-      height: 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
     }
-
-    .header img { 
-        height: 50px; 
+    .header img {
+      height: 50px;
     }
-
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
+      margin-left: 24px;
       font-weight: 600;
+      font-size: 1em;
+      transition: color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #ffd700;
+      outline: none;
     }
     main {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
-      padding: 60px 20px;
+      padding: 60px 20px 100px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+      max-width: 1100px;
+      margin: 0 auto;
     }
-    h1 { font-size: 3em; margin-bottom: 40px; }
-    .job-links {
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      letter-spacing: 1.2px;
+    }
+    p.intro {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin-bottom: 50px;
+      line-height: 1.5;
+      color: #ddd;
+    }
+    .job-cards {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
+      width: 100%;
     }
-    a.job {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
+    .job-card {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 30px 20px 40px;
+      width: 250px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .job-card:hover,
+    .job-card:focus-within {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 20px rgba(255, 255, 255, 0.4);
+      outline: none;
+    }
+    .job-card h3 {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+    .job-card p {
+      flex-grow: 1;
+      font-size: 1em;
+      margin-bottom: 25px;
+      color: #eee;
+      line-height: 1.4;
+    }
+    .job-card a.button {
+      background: white;
+      color: black;
       text-decoration: none;
-      padding: 15px 30px;
-      border-radius: 10px;
-      font-size: 1.2em;
-      font-weight: bold;
-      transition: 0.3s;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-align: center;
+      transition: background 0.3s ease;
+      user-select: none;
     }
-    a.job:hover {
-      background: rgba(255, 255, 255, 0.4);
+    .job-card a.button:hover,
+    .job-card a.button:focus {
+      background: #ffd700;
+      color: #000;
+      outline: none;
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px 40px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #ccc;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.7);
+    }
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    footer a:hover,
+    footer a:focus {
+      color: #ffd700;
+      outline: none;
+    }
+    @media (max-width: 900px) {
+      main {
+        padding: 40px 15px 80px;
+      }
+      .job-card {
+        width: 45%;
+      }
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      p.intro {
+        font-size: 1.1em;
+        max-width: 90%;
+        margin-bottom: 40px;
+      }
+      .job-card {
+        width: 100%;
+      }
+      nav a {
+        margin-left: 16px;
+        font-size: 0.95em;
+      }
+      .header {
+        padding: 15px 20px;
+      }
+      footer {
+        padding: 15px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <img src="logo-removebg-preview (1).png" alt="Logo">
+  <header class="header">
+    <img src="logo-removebg-preview (1).png" alt="Logo" />
     <nav>
       <a href="mainpage.html">Home</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
     </nav>
-  </div>
+  </header>
   <main>
     <h1>Choose a Job to Learn More</h1>
-    <div class="job-links">
-      <a class="job" href="teacher.html">Teacher</a>
-      <a class="job" href="doctor.html">Doctor</a>
-      <a class="job" href="engineer.html">Engineer</a>
-      <a class="job" href="artist.html">Artist</a>
-      <a class="job" href="chef.html">Chef</a>
+    <p class="intro">
+      Explore various professions to discover what drives each career and how they impact the world around us. Click on any job to dive into detailed information and learn why these roles matter.
+    </p>
+    <div class="job-cards">
+      <article class="job-card" tabindex="0">
+        <h3>Teacher</h3>
+        <p>Teachers inspire and educate the next generation, shaping the future with knowledge and compassion.</p>
+        <a class="button" href="teacher.html">Learn More</a>
+      </article>
+      <article class="job-card" tabindex="0">
+        <h3>Doctor</h3>
+        <p>Doctors help people stay healthy and treat illnesses, improving lives every day.</p>
+        <a class="button" href="doctor.html">Learn More</a>
+      </article>
+      <article class="job-card" tabindex="0">
+        <h3>Engineer</h3>
+        <p>Engineers build creative solutions and design new technologies to solve complex problems.</p>
+        <a class="button" href="engineer.html">Learn More</a>
+      </article>
+      <article class="job-card" tabindex="0">
+        <h3>Artist</h3>
+        <p>Artists express ideas and emotions through various creative mediums like painting, music, and design.</p>
+        <a class="button" href="artist.html">Learn More</a>
+      </article>
+      <article class="job-card" tabindex="0">
+        <h3>Chef</h3>
+        <p>Chefs combine ingredients and techniques to create delicious meals that bring people together.</p>
+        <a class="button" href="chef.html">Learn More</a>
+      </article>
+      <article class="job-card" tabindex="0">
+        <h3>Programmer</h3>
+        <p>Programmers write code and develop software that powers the technology we use daily.</p>
+        <a class="button" href="progamer.html">Learn More</a>
+      </article>
+      <article class="job-card" tabindex="0">
+        <h3>Electrician</h3>
+        <p>Electricians install and maintain electrical systems that power homes and businesses.</p>
+        <a class="button" href="electrician.html">Learn More</a>
+      </article>
+      <article class="job-card" tabindex="0">
+        <h3>Law</h3>
+        <p>Legal professionals uphold justice by interpreting laws and advocating for fairness.</p>
+        <a class="button" href="law.html">Learn More</a>
+      </article>
+      <article class="job-card" tabindex="0">
+        <h3>Civil Engineer</h3>
+        <p>Civil engineers design and oversee construction projects that shape our cities and infrastructure.</p>
+        <a class="button" href="civil.html">Learn More</a>
+      </article>
+      <article class="job-card" tabindex="0">
+        <h3>Scientist</h3>
+        <p>Scientists explore the natural world and innovate to expand human knowledge and technology.</p>
+        <a class="button" href="scientist.html">Learn More</a>
+      </article>
     </div>
   </main>
+  <footer>
+    © 2025 Career Explorer | 
+    <a href="contact.html">Contact</a> | 
+    <a href="about.html">About Us</a> | 
+    <a href="privacy.html">Privacy Policy</a>
+  </footer>
 </body>
 </html>

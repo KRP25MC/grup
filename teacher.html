@@ -15,31 +15,35 @@
       color: white;
       backdrop-filter: blur(4px);
     }
+
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px;
       background: rgba(0, 0, 0, 0.6);
-      height: 40px;
     }
+
     .header img { height: 50px; }
+
     nav a {
       color: white;
       text-decoration: none;
       margin-left: 20px;
       font-weight: 600;
     }
+
     main {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
       padding: 60px 20px;
     }
-    h1 { font-size: 2.5em; margin-bottom: 20px; }
-    p { font-size: 1.2em; max-width: 600px; margin-bottom: 30px; }
+
+    h1 { font-size: 2.8em; margin-bottom: 20px; }
+    p { font-size: 1.2em; max-width: 700px; margin-bottom: 30px; }
+
     .button {
       background: white;
       color: black;
@@ -48,9 +52,59 @@
       border-radius: 8px;
       font-weight: bold;
     }
+
+    .section {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      width: 250px;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .quote-section {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px 20px;
+      font-style: italic;
+      font-size: 1.3em;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
+
   <div class="header">
     <img src="logo-removebg-preview (1).png" alt="Logo">
     <nav>
@@ -58,11 +112,39 @@
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
     </nav>
-</div>
+  </div>
+
   <main>
     <h1>Teacher</h1>
     <p>Teachers inspire and educate the next generation. They help students grow in knowledge and confidence.</p>
     <a class="button" href="mainpage.html">Back to Main Page</a>
   </main>
+
+  <section class="section">
+    <h2>Why Teachers Matter</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Inspiration</h3>
+        <p>They motivate students to dream big and chase their goals.</p>
+      </div>
+      <div class="card">
+        <h3>Guidance</h3>
+        <p>They provide direction through academic and life challenges.</p>
+      </div>
+      <div class="card">
+        <h3>Leadership</h3>
+        <p>They set examples of integrity, dedication, and hard work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    “A teacher affects eternity; he can never tell where his influence stops.” – Henry Brooks Adams
+  </section>
+
+  <footer>
+    © 2025 Teacher Tribute | <a href="contact.html" style="color: #ccc;">Contact</a> | <a href="about.html" style="color: #ccc;">About Us</a>
+  </footer>
+
 </body>
 </html>
