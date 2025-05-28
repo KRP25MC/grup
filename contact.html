@@ -203,9 +203,6 @@
       <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
 
       <button type="submit">Send Message</button>
-      <p class="confirmation-message" id="confirmationMessage" role="alert" aria-live="polite" style="display:none;">
-        Thank you for contacting us! We'll get back to you shortly.
-      </p>
     </form>
   </main>
 
@@ -218,22 +215,5 @@
       <a href="#" aria-label="LinkedIn">LinkedIn</a>
     </p>
   </footer>
-
-  <script>
-    const form = document.getElementById('contactForm');
-    const confirmationMessage = document.getElementById('confirmationMessage');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Simulate form submission
-      confirmationMessage.style.display = 'block';
-      form.reset();
-
-      // Hide message after 5 seconds
-      setTimeout(() => {
-        confirmationMessage.style.display = 'none';
-      }, 5000);
-    });
-  </script>
 </body>
 </html>
